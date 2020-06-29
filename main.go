@@ -14,6 +14,7 @@ func main() {
 }
 
 func hdlFunc(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "<h1>hello you how are you</h1>")
 }
 
