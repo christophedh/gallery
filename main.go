@@ -14,7 +14,7 @@ func main() {
 }
 
 func hdlFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>hello</h1>")
+	fmt.Fprint(w, "<h1>hello you how are you</h1>")
 }
 
 func getPORT() string {
