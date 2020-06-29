@@ -21,8 +21,8 @@ func getPORT() string {
 	port := os.Getenv("PORT")
 
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 	}
-
+	port = ":" + port
 	return port
 }
