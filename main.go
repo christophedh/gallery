@@ -8,9 +8,9 @@ import (
 
 func main() {
 	http.HandleFunc("/", hdlFunc)
-	http.HandleFunc("/contact", contact)
 	port := getPORT()
-	fmt.Println("serve on ", port)
+	// fmt.Println("serve on", port)
+	fmt.Printf("serve on %s\n", port)
 	http.ListenAndServe(getPORT(), nil)
 }
 
@@ -18,7 +18,7 @@ func hdlFunc(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	fmt.Println(path)
 	switch path {
-	case "contact":
+	case "/contact":
 		contact(w, r)
 	case "/":
 		root(w, r)
@@ -39,6 +39,7 @@ func root(w http.ResponseWriter, r *http.Request) {
 }
 
 func p404(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
 	fmt.Fprint(w, `<h1>error 404 page not found</h1>`)
 }
 
